@@ -1,0 +1,105 @@
+<!-- index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 House Price Prediction</h1>
+        <form action="/predict" method="post">
+            <input name="CRIM" placeholder="Per capita crime rate" step="0.01" type="number" required>
+            <input name="ZN" placeholder="ZN - Proportion zoned >25,000 sqft" step="0.1" type="number" required>
+            <input name="INDUS" placeholder="INDUS - Non-retail business acres" step="0.1" type="number" required>
+            <select name="CHAS" required>
+                <option value="0">Not near river (CHAS = 0)</option>
+                <option value="1">Near river (CHAS = 1)</option>
+            </select>
+            <input name="NOX" placeholder="NOX - Nitric oxide concentration" step="0.01" type="number" required>
+            <input name="RM" placeholder="Average rooms (RM)" step="0.1" type="number" required>
+            <input name="AGE" placeholder="% built before 1940 (AGE)" step="0.1" type="number" required>
+            <input name="DIS" placeholder="Distance to employment centers (DIS)" step="0.1" type="number" required>
+            <input name="RAD" placeholder="RAD - Highway access index" type="number" required>
+            <input name="TAX" placeholder="TAX - Property-tax rate" type="number" required>
+            <input name="PTRATIO" placeholder="Pupil-teacher ratio (PTRATIO)" step="0.1" type="number" required>
+            <input name="B" placeholder="B - 1000(Bk - 0.63)^2" step="0.1" type="number" required>
+            <input name="LSTAT" placeholder="LSTAT - % lower status" step="0.1" type="number" required>
+            <button type="submit">Predict Price 💰</button>
+        </form>
+        {% if prediction %}
+            <div class="result">Predicted Price: ${{ prediction }}K</div>
+        {% endif %}
+    </div>
+    <div id="loader" style="display:none;">
+        <div class="spinner"></div>
+        <p>Predicting the price...</p>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function () {
+            document.getElementById("loader").style.display = "flex";
+        });
+    </script>
+       
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏡 House Price Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>🏡 House Price Predictor</h2>
+        <form method="POST" onsubmit="showLoader()">
+            <label>Location</label>
+            <select name="location" required>
+                <option>Allston</option>
+                <option>Brookline</option>
+                <option>Cambridge</option>
+                <option>Dorchester</option>
+                <option>Fenway</option>
+                <option>Jamaica Plain</option>
+                <option>Roxbury</option>
+                <option>South Boston</option>
+                <option>West Roxbury</option>
+            </select>
+
+            <label>Number of Bedrooms</label>
+            <input type="number" name="bedrooms" min="1" placeholder="e.g. 3" required>
+
+            <label>Year Built</label>
+            <input type="number" name="built_year" min="1900" max="2025" placeholder="e.g. 2005" required>
+
+            <label>Near River?</label>
+            <select name="near_river" required>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <button type="submit">💰 Predict Price</button>
+        </form>
+
+        <div id="loader" style="display: none;">
+            <div class="lds-dual-ring"></div>
+            <p>Predicting...</p>
+        </div>
+
+        {% if price %}
+        <div class="price">Estimated Price: <strong>${{ price }}k</strong></div>
+        {% endif %}
+    </div>
+
+    <script>
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

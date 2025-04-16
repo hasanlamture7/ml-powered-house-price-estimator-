@@ -1,0 +1,248 @@
+/* Fancy Glassmorphism + Loader Animation
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    max-width: 450px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+label {
+    text-align: left;
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 500;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input, select {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input::placeholder {
+    color: #ddd;
+}
+
+button {
+    background: #ff6a00;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #ff8c00;
+    transform: scale(1.05);
+}
+
+.price {
+    margin-top: 25px;
+    font-size: 24px;
+    background: #00000033;
+    padding: 12px;
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+/* Loader Style */
+/*
+#loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+    display: none;
+}
+
+.loader-spinner {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+#loader p {
+    color: #fff;
+    margin-top: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+} */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background: linear-gradient(135deg, #2e8b57, #1e3c72);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    max-width: 450px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+label {
+    text-align: left;
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 500;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input, select {
+    background: rgba(255, 255, 255, 0.25);
+    color: #010000;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    z-index: 1;
+
+    
+}
+
+input::placeholder {
+    color: #ddd;
+}
+
+button {
+    background: #ff6a00;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #ff8c00;
+    transform: scale(1.05);
+}
+
+.price {
+    margin-top: 25px;
+    font-size: 24px;
+    background: #00000033;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+/* Loader */
+#loader {
+    margin-top: 20px;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
