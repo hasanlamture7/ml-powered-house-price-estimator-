@@ -10,10 +10,11 @@ A Flask-based machine learning web application that predicts house prices based 
 
 ### 🚀 Demo
 
-👉 [Live App Link (if deployed)](https://ml-powered-house-price-estimator.onrender.com/)  
+👉 [Live App Link](https://ml-powered-house-price-estimator.onrender.com/)  
 📷 *Add a screenshot of your web UI here if possible!*
 
----
+![image](https://github.com/user-attachments/assets/f63e9bce-e6ab-4227-9a5c-1676789e0ac5)
+
 
 ### 📦 Features
 
