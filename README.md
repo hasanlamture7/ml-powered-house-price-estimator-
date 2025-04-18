@@ -84,4 +84,4 @@ MIT License © 2025 [Hasan Lamture](https://github.com/hasanlamture7)
 
 ---
 
-Would you like me to generate the actual markdown file so you can copy-paste it directly? Or tailor it with a screenshot/your deployment link?
+
